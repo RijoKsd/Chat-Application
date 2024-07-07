@@ -2,9 +2,11 @@
   "name": "chat-application",
   "version": "1.0.0",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "server": "nodemon server/server.js"
   },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",

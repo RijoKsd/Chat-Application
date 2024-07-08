@@ -38,7 +38,7 @@ export const signup = async (req, res) => {
     });
 
     // generate jwt token
-     generateTokenAndSetCookie(newUser._id, res);
+    generateTokenAndSetCookie(newUser._id, res);
     await newUser.save();
 
     return res.status(201).json({
@@ -57,7 +57,7 @@ export const login = async (req, res) => {
   try {
     // Extract username and password from the request body
     const { username, password } = req.body;
-    
+
     // Check if all fields are provided
     if (!username || !password) {
       // If not, return a 400 error with a message
@@ -90,14 +90,18 @@ export const login = async (req, res) => {
       fullName: user.fullName,
       profilePic: user.profilePic,
     });
-
   } catch (err) {
     // If an error occurs, log the error and return a 500 error with the error message
     console.error("Error in login controller", err.message);
     return res.status(500).json({ error: err.message });
   }
-   
 };
-export const logout = async (req, res) => {
-  res.send("logout Route");
+export const logout = (req, res) => {
+  try {
+    res.cookie("jwt", "", { maxAge: 0 });
+    return res.status(200).json({ message: "Logged out successfully" });
+  } catch (err) {
+    console.log("Error in logout controller", err.message);
+    return res.status(500).json({ error: err.message });
+  }
 };

@@ -1,9 +1,10 @@
- import SignUp from "./pages/signup/SignUp.jsx";
-const App = () => {
+import Home from "./pages/home/Home";
+
+ const App = () => {
   return (
     <div className="p-4 h-screen flex items-center justify-center">
-      <SignUp />
-    </div>
+      <Home />
+     </div>
   );
 };
 

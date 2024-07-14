@@ -90,6 +90,7 @@ export const login = async (req, res) => {
       username: user.username,
       fullName: user.fullName,
       profilePic: user.profilePic,
+      message: "Logged in successfully",
     });
   } catch (err) {
     // If an error occurs, log the error and return a 500 error with the error message

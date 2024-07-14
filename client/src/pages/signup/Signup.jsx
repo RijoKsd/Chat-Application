@@ -105,18 +105,24 @@ const SignUp = () => {
             selectedGender={inputs.gender}
           />
 
+          <div>
+            <button
+              className="btn btn-secondary btn-block btn-sm mt-4"
+              disabled={loading}
+            >
+              {loading ? (
+                <span className="loading loading-spinner"></span>
+              ) : (
+                "Sign Up"
+              )}
+            </button>
+          </div>
           <Link
             to="/login"
             className="text-sm text-white transition-all hover:underline  mt-2 inline-block"
           >
-            Already have an account<strong>Login here.</strong>
+            Already have an account <strong> Login here.</strong>
           </Link>
-
-          <div>
-            <button className="btn btn-secondary btn-block btn-sm mt-4">
-              Sign Up
-            </button>
-          </div>
         </form>
       </div>
     </div>

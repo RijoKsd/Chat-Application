@@ -51,11 +51,11 @@ export const getMessages = async (req, res) => {
     }).populate("messages");
 
     if (!conversation) {
-      return res.status(404).json([]);
+      return res.status(404).json({messages: []});
     }
 
     const messages = conversation.messages;
-    return res.status(200).json(messages);
+    return res.status(200).json({messages});
   } catch (err) {
     console.log("Error in getMessages controller", err.message);
     return res.status(500).json({ error: err.message });

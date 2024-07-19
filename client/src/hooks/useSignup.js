@@ -40,8 +40,7 @@ function useSignup() {
         setLoading(false);
         return;
       }
-      console.log(data, "data from signup");
-      // local storage
+       // local storage
       localStorage.setItem("authUser", JSON.stringify(data));
       // context
       setAuthUser(data);

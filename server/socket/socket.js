@@ -11,13 +11,19 @@ const io = new Server(server, {
   },
 });
 
-const userSocketMap = {};
+
+export const getReceiverSocketId = (receiverId)=>{
+  return userSocketMap[receiverId];
+}
+
+
+const userSocketMap = {}; // {userId: socketId}
 
 io.on("connection", (socket) => {
   console.log("a user connected", socket.id);
 
   const userId = socket.handshake.query.userId;
-  if (userId !== undefined) userSocketMap[userId] = socket;
+  if (userId !== undefined) userSocketMap[userId] = socket.id;
 
   //   socket.emit() is used to send events to the client
 

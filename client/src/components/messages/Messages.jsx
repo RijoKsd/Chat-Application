@@ -2,10 +2,12 @@ import useGetMessages from "../../hooks/useGetMessages";
 import Message from "./Message";
 import MessageSkeleton from "../skeletons/MessageSkeleton";
 import { useEffect, useRef } from "react";
+import useListenMessages from "../../hooks/useListenMessages";
 
 const Messages = () => {
   const { messages, loading } = useGetMessages();
   const lastMessageRef =  useRef();
+   useListenMessages();
 
 // scroll to bottom
 useEffect(()=>{

@@ -1,9 +1,9 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import Login from "./pages/login/Login.jsx";
-import SignUp from "./pages/signup/SignUp.jsx";
-import Home from "./pages/home/Home.jsx";
+import Login from "./pages/login/Login";
+import SignUp from "./pages/signup/SignUp";
+import Home from "./pages/home/Home";
 import { Toaster } from "react-hot-toast";
-import { useAuthContext } from "./context/AuthContext.jsx";
+import { useAuthContext } from "./context/AuthContext";
 
 const App = () => {
   const { authUser } = useAuthContext();
